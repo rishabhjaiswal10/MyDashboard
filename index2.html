@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles2.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <!--Main Navigation-->
+    <header>
+      <!-- Sidebar -->
+      <nav
+        id="sidebarMenu"
+        class="collapse d-lg-block sidebar collapse"
+      >
+        <div class="position-sticky">
+          <div class="list-group list-group-flush mx-3 mt-4">
+            <a
+              href="#"
+              class="list-group-item list-group-item-action py-2 ripple"
+              aria-current="true"
+              style="background-color: #2a4765;"
+            >
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i
+              ><span style="color: azure;font-size: 18px;">Main dashboard</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- Sidebar -->
+
+      <!-- Navbar -->
+      <nav
+        id="main-navbar"
+        class="navbar navbar-expand-lg navbar-light fixed-top"
+      >
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <!-- <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button> -->
+
+          <!-- Brand -->
+          <!-- <a class="navbar-brand" href="#">
+          <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="25" alt="MDB Logo"
+            loading="lazy" />
+        </a> -->
+        <h1 style="color: white;">Dashboard</h1>
+          <!-- Search form -->
+          <!-- <form class="d-none d-md-flex input-group w-auto my-auto">
+            <input
+              autocomplete="off"
+              type="search"
+              class="form-control rounded"
+              placeholder="Search "
+              style="min-width: 825px ;background-color: #9AD1E7;"
+            />
+          </form> -->
+          <div style="color: black"></div>
+          <!-- <div style="color: black;">About</div>
+        <div style="color: black;">Contact Us</div>
+        <div style="color: black;">Careers</div> -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <!--Main Navigation-->
+    <div id="wrapper">
+      <div class="content-area">
+        <div class="container-fluid">
+          <div class="main">
+            <h1 style="color: black; text-align: center">
+              Application Insights
+            </h1>
+            <div class="row mt-4 mb-4 " style="    margin-left: 216px;
+            text-align: center;
+            margin-right: 215px;">
+              <div class="col-md-6">
+                <div
+                  class="box box1"
+                  style="background-color: #0366c3; padding: 5px;border-radius: 25px;"
+                >
+                  <!-- <div id="spark1"></div> -->
+                  <div
+                    id="Windows"
+                    class="bottom"
+                    style="
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: rgb(255, 255, 255);
+                      text-align: left;
+                      font-size: 71px;
+    margin-bottom: -76px;
+    margin-left: 10px;
+                    "
+                  ></div>
+                  <div
+                    class="top"
+                    style="
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: rgb(255, 255, 255);
+                    "
+                  >
+                    <h5
+                      style="
+                        text-align: right;
+                        font-size: 45px;
+                        margin-top: 0px;
+                        margin-right: 35px;
+                      "
+                    >
+                    Windows</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div
+                  class="box box2"
+                  style="background-color: #28a2e3; padding: 5px ;border-radius: 25px;"
+                >
+                  <!-- <div id="spark2"></div> -->
+                  <div
+                    class="bottom"
+                    id="totalUsers"
+                    style="
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: rgb(255, 255, 255);
+                      text-align: left;
+                      font-size: 71px;
+    margin-bottom: -76px;
+    margin-left: 10px;
+                    "
+                  ></div>
+                  <div
+                    class="top"
+                    style="
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: rgb(255, 255, 255);
+                    "
+                  >
+                    <h5
+                      style="
+                        text-align: right;
+                        font-size: 45px;
+                        margin-top: -23px;
+                        margin-right: 81px;
+                      "
+                    >
+                      Users
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-1 mb-1">
+              <div class="col-md-6">
+                <div class="box">
+                  <h5
+                    style="
+                      text-align: left;
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: rgb(0, 0, 0);
+                    "
+                  >
+                    Total Time Spent on Windows
+                  </h5>
+                  <canvas id="barChart"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="box">
+                  <h5
+                    style="
+                      text-align: left;
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: black;
+                    "
+                  >
+                    Total Time Spent By Users
+                  </h5>
+                  <canvas id="barChartUser"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-4 mb-4">
+              <div class="col-md-6">
+                <div class="box">
+                  <h5
+                    style="
+                      text-align: left;
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: black;
+                    "
+                  >
+                    Window-Time Distribution
+                  </h5>
+                  <canvas
+                    id="pieChart"
+                    style="height: 323px; width: 450px"
+                  ></canvas>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="box">
+                  <h5
+                    style="
+                      text-align: left;
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: black;
+                    "
+                  >
+                    User-Time Distribution
+                  </h5>
+                  <canvas
+                    id="pieChartUser"
+                    style="height: 323px; width: 450px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4 mb-4">
+              <div class="col-md-6">
+                <div
+                  class="box"
+                  style="
+                    height: 543px;
+                    width: 1149px;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                  "
+                >
+                <h5
+                    style="
+                      text-align: left;
+                      font-family: Helvetica, Arial, sans-serif;
+                      opacity: 1;
+                      color: black;
+                    "
+                  >
+                    User-Time Analysis with Windows Stacked
+                  </h5>
+                  <canvas
+                    id="stackedBarChart"
+                    width="1357"
+                    height="678"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="data2.js"></script>
+    <!-- <script src="script2.js"></script> -->
+    <script src="scripts.js"></script>
+
+    <script></script>
+  </body>
+</html>
