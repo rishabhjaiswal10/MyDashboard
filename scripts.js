@@ -214,8 +214,8 @@ var pieChart = new Chart(ctx, {
   const activityTimes = Array.from(windowMap.values()).map(sum => sum);
 
   // Create a bar chart
-  var ctx = document.getElementById('barChart').getContext('2d');
-  var barChart = new Chart(ctx, {
+  var ctxWindow = document.getElementById('barChart').getContext('2d');
+  var barChart = new Chart(ctxWindow, {
     type: 'bar',
     data: {
       labels: labels,
@@ -250,7 +250,7 @@ var pieChart = new Chart(ctx, {
   });
 
   // Add an event listener to the "barChart" canvas for the "Windows" bar chart
-ctx.canvas.addEventListener("click", function (event) {
+ctxWindow.canvas.addEventListener("click", function (event) {
   const activePoints = barChart.getElementsAtEventForMode(event, "nearest", {
     intersect: true,
   });
@@ -372,6 +372,16 @@ function resetWindowCharts() {
 
 
 // ...
+// Store the original data for the "barChartUser" and "pieChartUser"
+const originalBarChartUserData = {
+  labels: userLabels,
+  data: userActivityTimes,
+};
+
+const originalPieChartUserData = {
+  labels: userLabels,
+  data: userActivityTimes,
+};
 
   // Add an event listener to the "barChart" canvas for the "Windows" bar chart
   ctx.canvas.addEventListener("click", function (event) {
@@ -413,20 +423,20 @@ function updateUserCharts(selectedWindowName) {
   barChartUser.update();
   
   // Update the data and labels for the "pieChartUser"
-  pieChartUser.data.labels = userLabels;
-  pieChartUser.data.datasets[0].data = userActivityTimes;
-  pieChartUser.update();
+  // pieChartUser.data.labels = userLabels;
+  // pieChartUser.data.datasets[0].data = userActivityTimes;
+  // pieChartUser.update();
 }
 
 
 function resetUserCharts() {
-    barChartUser.data.labels = userLabels;
-    barChartUser.data.datasets[0].data = userActivityTimes;
+    barChartUser.data.labels = originalBarChartUserData.labels;
+    barChartUser.data.datasets[0].data = originalBarChartUserData.data;
     barChartUser.update();
 
-    pieChartUser.data.labels = userLabels;
-    pieChartUser.data.datasets[0].data = userActivityTimes;
-    pieChartUser.update();
+    // pieChartUser.data.labels = originalPieChartUserData.labels;
+    // pieChartUser.data.datasets[0].data = originalBarChartUserData.data;
+    // pieChartUser.update();
   }
 
   document.addEventListener("click", function (event) {
@@ -435,16 +445,20 @@ function resetUserCharts() {
   
     // Check if the clicked element is a descendant of the bar chart canvases or their containers
     const barChartUserCanvas = ctxUser.canvas;
-    const barChartCanvas = ctx.canvas;
+    const barChartCanvas = ctxWindow.canvas;
   
     const isOutsideBothCharts =
       !barChartUserCanvas.contains(clickedElement) &&
       !barChartCanvas.contains(clickedElement);
   
-    if (isOutsideBothCharts) {
-      console.log("RJ");
-      // resetUserCharts();
+    if (!barChartCanvas.contains(clickedElement)) {
+      if(!barChartUserCanvas.contains(clickedElement))
+      {
+        console.log("rj");
+              resetUserCharts();
       resetWindowCharts();
+      }
+
     }
   });
   
